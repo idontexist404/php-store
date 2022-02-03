@@ -1,0 +1,17 @@
+{
+    "name": "highlander/phpstore",
+    "description": "PHP e-commerce",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Highlander Magno",
+            "email": "highlander9200@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "core\\" : "core/"
+        }
+    }
+}
