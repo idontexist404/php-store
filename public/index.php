@@ -1,4 +1,5 @@
 <?php
+
 use core\classes\Database;
 use core\classes\Functions;
 

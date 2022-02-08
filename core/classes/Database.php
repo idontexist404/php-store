@@ -38,8 +38,8 @@ class Database
     // CRUD
     // ============================================================
     public function select($sql, $parameters = null)
+    // Performs SQL search functions
     {
-        // Performs SQL search functions
         $this->connect();
 
         $results = null;
