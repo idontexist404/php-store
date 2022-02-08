@@ -13,6 +13,8 @@ require_once('../vendor/autoload.php');
 
 $db = new Database();
 //$customers = $db->select('SELECT * FROM customers');
-$clientes = $db->select("SELECT * FROM customers");
+$customers = $db->select("SELECT * FROM customers");
 echo '<pre>';
 print_r($clientes);
+
+// phpinfo();
