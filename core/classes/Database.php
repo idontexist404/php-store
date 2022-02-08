@@ -4,10 +4,20 @@ namespace core\classes;
 
 class Database
 {
-    /* Database management */
+    private $connect;
 
-    public function __construct()
+    private function connect()
     {
-        echo 'Database!';
+
     }
+
+
 }
+
+/*
+define('MYSQL_SERVER',      'localhost');
+define('MYSQL_DATABASE',    'php_store');
+define('MYSQL_USER',        'user_php_store');
+define('MYSQL_PASS',        '');
+define('MYSQL_CHARSET',     'utf8');
+*/
