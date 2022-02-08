@@ -12,19 +12,25 @@ class Database
     private function connect()
     // Connect to the database
     {
-        $this->connection = new PDO(
-            'mysql:' .
-            'dbname=' . MYSQL_DATABASE . ';' .
-            'host=' . MYSQL_SERVER . ';' .
-            'port=' . MYSQL_PORT . ';' .
-            'charset=' . MYSQL_CHARSET,
-            MYSQL_USER,
-            MYSQL_PASS,
-            array(PDO::ATTR_PERSISTENT => true)
+        $dsn = sprintf("mysql:dbname=%s;host=%s;port=%s;charset=%s",
+            MYSQL_DATABASE,
+            MYSQL_SERVER,
+            MYSQL_PORT,
+            MYSQL_CHARSET
         );
 
-        // Debug
-        $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+        try {
+            $this->connection = new PDO(
+                $dsn,
+                MYSQL_USER,
+                MYSQL_PASS
+            );
+
+            // Debug
+            $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+        } catch (\Exception $e) {
+            exit($e->getMessage());
+        }
     }
 
 
