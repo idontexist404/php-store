@@ -12,9 +12,8 @@ require_once('../config.php');
 // Automatically load (psr-4) project classes using namespaces
 require_once('../vendor/autoload.php');
 
-$a = new Database();
-$b = new Functions();
-
-$b->test();
-
-echo 'OK!';
+$db = new Database();
+$customers = $db->select("SELECT * FROM customers");
+echo '<pre>';
+print_r($customers);
+echo '</pre>';
