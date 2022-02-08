@@ -14,9 +14,9 @@ class Database
     {
         $this->connection = new PDO(
             'mysql:' .
+            'dbname=' . MYSQL_DATABASE . ';' .
             'host=' . MYSQL_SERVER . ';' .
             'port=' . MYSQL_PORT . ';' .
-            'dbname=' . MYSQL_DATABASE . ';' .
             'charset=' . MYSQL_CHARSET,
             MYSQL_USER,
             MYSQL_PASS,
