@@ -8,13 +8,16 @@ session_start();
 // Load config file
 require_once('../config.php');
 
-// Automatically load (psr-4) project classes using namespaces
+// Autoload (psr-4) project classes using namespaces
 require_once('../vendor/autoload.php');
 
 $db = new Database();
-//$customers = $db->select('SELECT * FROM customers');
+
+// Comment the line below and the error is gone
 $customers = $db->select("SELECT * FROM customers");
+
 echo '<pre>';
-print_r($clientes);
+print_r($customers);
+echo '</pre>';
 
 // phpinfo();
