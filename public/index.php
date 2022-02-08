@@ -1,5 +1,4 @@
 <?php
-
 use core\classes\Database;
 use core\classes\Functions;
 
@@ -13,7 +12,7 @@ require_once('../config.php');
 require_once('../vendor/autoload.php');
 
 $db = new Database();
-$customers = $db->select("SELECT * FROM customers");
+//$customers = $db->select('SELECT * FROM customers');
+$clientes = $db->select("SELECT * FROM customers");
 echo '<pre>';
-print_r($customers);
-echo '</pre>';
+print_r($clientes);

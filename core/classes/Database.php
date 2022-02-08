@@ -6,16 +6,17 @@ use PDOException;
 
 class Database
 {
-    private $connect;
+    private $connection;
 
     // ============================================================
     private function connect()
     // Connect to the database
     {
-        $this->connect = new PDO(
+        $this->connection = new PDO(
             'mysql:' .
-            'host=' . MYSQL_SERVER . ':' .
-            'dbname=' . MYSQL_DATABASE . ':' .
+            'host=' . MYSQL_SERVER . ';' .
+            'port=' . MYSQL_PORT . ';' .
+            'dbname=' . MYSQL_DATABASE . ';' .
             'charset=' . MYSQL_CHARSET,
             MYSQL_USER,
             MYSQL_PASS,
@@ -23,7 +24,7 @@ class Database
         );
 
         // Debug
-        $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+        $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
     }
 
 
@@ -31,7 +32,7 @@ class Database
     private function disconnect()
     // Disconnect from database
     {
-        $this->connect = null;
+        $this->connection = null;
     }
 
     // ============================================================
@@ -47,11 +48,11 @@ class Database
         try {
             // Communicates with database
             if(!empty($parameters)) {
-                $perform = $this->connect->prepare($sql);
+                $perform = $this->connection->prepare($sql);
                 $perform->execute($parameters);
                 $results = $perform->fetchAll(PDO::FETCH_CLASS);
             } else {
-                $perform = $this->connect->prepare($sql);
+                $perform = $this->connection->prepare($sql);
                 $perform->execute();
                 $results = $perform->fetchAll(PDO::FETCH_CLASS);
             }
