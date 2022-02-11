@@ -50,15 +50,9 @@ class Database
     // CRUD
     //************************************************************
 
-<<<<<<< HEAD
     //============================================================
     // SELECT
     //============================================================
-=======
-    // ============================================================
-    // SELECT
-    // ============================================================
->>>>>>> origin/managing_databases
 
     public function select($sql, $parameters = null)
     // Performs SQL search functions
@@ -210,7 +204,6 @@ class Database
 
     public function statement($sql, $parameters = null)
     {
-
         // Verify if it is a different statement
         if (preg_match("/^SELECT|INSERT|UPDATE|DELETE/i", $sql)) {
             throw new Exception('Database - Invalid statement.');
