@@ -11,10 +11,6 @@ require_once('../config.php');
 // Autoload (psr-4) project classes using namespaces
 require_once('../vendor/autoload.php');
 
-$db = new Database();
-$customers = $db->select("SELECT * FROM customers");
-echo '<pre>';
-print_r($customers);
-echo '</pre>';
+// Load routes
+require_once('../core/Routes.php');
 
-// phpinfo();
