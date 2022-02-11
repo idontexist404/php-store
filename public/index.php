@@ -14,9 +14,11 @@ require_once('../vendor/autoload.php');
 $db = new Database();
 
 $customers = $db->select("SELECT * FROM customers");
+$test = $db->select("INSERT TEST");
 
 echo '<pre>';
-print_r($customers);
+print_r($customers/* , $test */);
 echo '</pre>';
+
 
 // phpinfo();

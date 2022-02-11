@@ -1,6 +1,7 @@
 <?php
 namespace core\classes;
 
+use Exception;
 use PDO;
 use PDOException;
 
@@ -49,6 +50,12 @@ class Database
     public function select($sql, $parameters = null)
     // Performs SQL search functions
     {
+
+        // Checks if is a SELECT statement
+        if (!preg_match("/^SELECT/i", $sql)) {
+            throw new Exception('Base de dados - Não é uma instrução SELECT');
+        }
+
         $this->connect();
 
         $results = null;
