@@ -12,9 +12,9 @@ require_once('../config.php');
 require_once('../vendor/autoload.php');
 
 $db = new Database();
-
 $customers = $db->select("SELECT * FROM customers");
-$db->select("INSERT TEST");
-
+echo '<pre>';
+print_r($customers);
+echo '</pre>';
 
 // phpinfo();
