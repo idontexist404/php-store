@@ -17,5 +17,4 @@ echo '<pre>';
 print_r($customers);
 echo '</pre>';
 
-//hello
 // phpinfo();

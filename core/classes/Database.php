@@ -39,14 +39,7 @@ class Database
     }
 
     //============================================================
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> 72bcaf6 (Whoops, fotgot to delete the ! (not))
-=======
-
->>>>>>> 095c86d (whoops, forgot to delete!)
     private function disconnect()
     // Disconnect from database
     {
@@ -57,27 +50,9 @@ class Database
     // CRUD
     //************************************************************
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    // ============================================================
-    // SELECT
-    // ============================================================
-=======
     //============================================================
     // SELECT
     //============================================================
->>>>>>> 72bcaf6 (Whoops, fotgot to delete the ! (not))
-=======
-    // ============================================================
-    // SELECT
-    // ============================================================
->>>>>>> 095c86d (whoops, forgot to delete!)
-=======
-    //============================================================
-    // SELECT
-    //============================================================
->>>>>>> 103a260 (ok then)
 
     public function select($sql, $parameters = null)
     // Performs SQL search functions
@@ -124,7 +99,6 @@ class Database
 
     public function insert($sql, $parameters = null)
     {
-
         // Checks if is a SELECT statement
         if (!preg_match("/^INSERT/i", $sql)) {
             throw new Exception('Database - Not a INSERT statement.');
@@ -159,7 +133,6 @@ class Database
 
     public function update($sql, $parameters = null)
     {
-
         // Checks if is a UPDATE statement
         if (!preg_match("/^UPDATE/i", $sql)) {
             throw new Exception('Database - Not a UPDATE statement.');
@@ -194,7 +167,6 @@ class Database
 
     public function delete($sql, $parameters = null)
     {
-
         // Checks if is a DELETE statement
         if (!preg_match("/^DELETE/i", $sql)) {
             throw new Exception('Database - Not a DELETE statement.');
@@ -230,15 +202,7 @@ class Database
     public function statement($sql, $parameters = null)
     {
         // Verify if it is a different statement
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!preg_match("/^SELECT|INSERT|UPDATE|DELETE/i", $sql)) {
-=======
         if (preg_match("/^SELECT|INSERT|UPDATE|DELETE/i", $sql)) {
->>>>>>> 72bcaf6 (Whoops, fotgot to delete the ! (not))
-=======
-        if (preg_match("/^SELECT|INSERT|UPDATE|DELETE/i", $sql)) {
->>>>>>> 095c86d (whoops, forgot to delete!)
             throw new Exception('Database - Invalid statement.');
         }
 
