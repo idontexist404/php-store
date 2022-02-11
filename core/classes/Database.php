@@ -9,12 +9,14 @@ class Database
 {
     private $connection;
 
-    // ============================================================
+    //============================================================
+
     private function connect()
     // Connect to the database
     {
         // dsn means Data Source Name
         // https://www.php.net/manual/en/ref.pdo-mysql.connection.php
+
         $dsn = sprintf("mysql:dbname=%s;host=%s;port=%s;charset=%s",
             MYSQL_DATABASE,
             MYSQL_SERVER,
@@ -36,30 +38,56 @@ class Database
         }
     }
 
+    //============================================================
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 
-    // ============================================================
+>>>>>>> 72bcaf6 (Whoops, fotgot to delete the ! (not))
+=======
+
+>>>>>>> 095c86d (whoops, forgot to delete!)
     private function disconnect()
     // Disconnect from database
     {
         $this->connection = null;
     }
 
-    // ============================================================
+    //************************************************************
     // CRUD
+    //************************************************************
+
+<<<<<<< HEAD
+<<<<<<< HEAD
     // ============================================================
+    // SELECT
+    // ============================================================
+=======
+    //============================================================
+    // SELECT
+    //============================================================
+>>>>>>> 72bcaf6 (Whoops, fotgot to delete the ! (not))
+=======
+    // ============================================================
+    // SELECT
+    // ============================================================
+>>>>>>> 095c86d (whoops, forgot to delete!)
+
     public function select($sql, $parameters = null)
     // Performs SQL search functions
     {
 
         // Checks if is a SELECT statement
         if (!preg_match("/^SELECT/i", $sql)) {
-            throw new Exception('Base de dados - Não é uma instrução SELECT');
+            throw new Exception('Database - Not a SELECT statement.');
         }
 
+        // Connects
         $this->connect();
 
         $results = null;
 
+        // Talks
         try {
             // Communicates with database
             if(!empty($parameters)) {
@@ -72,6 +100,7 @@ class Database
                 $results = $perform->fetchAll(PDO::FETCH_CLASS);
             }
         } catch (PDOException $e) {
+
             // Only runs in case of error
             return false;
         }
@@ -81,5 +110,153 @@ class Database
 
         // Return obtained results
         return $results;
+    }
+
+    //============================================================
+    // INSERT
+    //============================================================
+
+    public function insert($sql, $parameters = null)
+    {
+
+        // Checks if is a SELECT statement
+        if (!preg_match("/^INSERT/i", $sql)) {
+            throw new Exception('Database - Not a INSERT statement.');
+        }
+
+        // Connects
+        $this->connect();
+
+        // Talks
+        try {
+            // Communicates with database
+            if(!empty($parameters)) {
+                $perform = $this->connection->prepare($sql);
+                $perform->execute($parameters);
+            } else {
+                $perform = $this->connection->prepare($sql);
+                $perform->execute();
+            }
+        } catch (PDOException $e) {
+
+            // Only runs in case of error
+            return false;
+        }
+
+        // Disconnects from database
+        $this->disconnect();
+    }
+
+    //============================================================
+    // UPDATE
+    //============================================================
+
+    public function update($sql, $parameters = null)
+    {
+
+        // Checks if is a UPDATE statement
+        if (!preg_match("/^UPDATE/i", $sql)) {
+            throw new Exception('Database - Not a UPDATE statement.');
+        }
+
+        // Connects
+        $this->connect();
+
+        // Talks
+        try {
+            // Communicates with database
+            if(!empty($parameters)) {
+                $perform = $this->connection->prepare($sql);
+                $perform->execute($parameters);
+            } else {
+                $perform = $this->connection->prepare($sql);
+                $perform->execute();
+            }
+        } catch (PDOException $e) {
+
+            // Only runs in case of error
+            return false;
+        }
+
+        // Disconnects from database
+        $this->disconnect();
+    }
+
+    //============================================================
+    // DELETE
+    //============================================================
+
+    public function delete($sql, $parameters = null)
+    {
+
+        // Checks if is a DELETE statement
+        if (!preg_match("/^DELETE/i", $sql)) {
+            throw new Exception('Database - Not a DELETE statement.');
+        }
+
+        // Connects
+        $this->connect();
+
+        // Talks
+        try {
+            // Communicates with database
+            if(!empty($parameters)) {
+                $perform = $this->connection->prepare($sql);
+                $perform->execute($parameters);
+            } else {
+                $perform = $this->connection->prepare($sql);
+                $perform->execute();
+            }
+        } catch (PDOException $e) {
+
+            // Only runs in case of error
+            return false;
+        }
+
+        // Disconnects from database
+        $this->disconnect();
+    }
+
+    //============================================================
+    // GENERIC
+    //============================================================
+
+    public function statement($sql, $parameters = null)
+    {
+
+        // Verify if it is a different statement
+<<<<<<< HEAD
+<<<<<<< HEAD
+        if (!preg_match("/^SELECT|INSERT|UPDATE|DELETE/i", $sql)) {
+=======
+        if (preg_match("/^SELECT|INSERT|UPDATE|DELETE/i", $sql)) {
+>>>>>>> 72bcaf6 (Whoops, fotgot to delete the ! (not))
+=======
+        if (preg_match("/^SELECT|INSERT|UPDATE|DELETE/i", $sql)) {
+>>>>>>> 095c86d (whoops, forgot to delete!)
+            throw new Exception('Database - Invalid statement.');
+        }
+
+        // Connects
+        $this->connect();
+
+        // Talks
+        try {
+            // Communicates with database
+            if(!empty($parameters)) {
+                $perform = $this->connection->prepare($sql);
+                $perform->execute($parameters);
+            } else {
+                $perform = $this->connection->prepare($sql);
+                $perform->execute();
+            }
+        } catch (PDOException $e) {
+
+            // Only runs in case of error
+            return false;
+        }
+
+        // Disconnects from database
+        $this->disconnect();
     }
 }
