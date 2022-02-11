@@ -13,7 +13,6 @@ require_once('../vendor/autoload.php');
 
 $db = new Database();
 
-// Comment the line below and the error is gone
 $customers = $db->select("SELECT * FROM customers");
 
 echo '<pre>';

@@ -12,6 +12,8 @@ class Database
     private function connect()
     // Connect to the database
     {
+        // dsn means Data Source Name
+        // https://www.php.net/manual/en/ref.pdo-mysql.connection.php
         $dsn = sprintf("mysql:dbname=%s;host=%s;port=%s;charset=%s",
             MYSQL_DATABASE,
             MYSQL_SERVER,
