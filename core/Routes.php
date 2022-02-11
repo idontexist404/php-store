@@ -10,9 +10,9 @@ $routes = [
 // define default
 $default = 'home';
 
-// verify if default$default exists in querry string
+// verify if default exists in querry string
 if(isset($_GET['a'])){
-    // verify if default$default exists in routes
+    // verify if default exists in routes
     if(!key_exists($_GET['a'], $routes)){
         $default = 'home';
     } else {
