@@ -59,6 +59,7 @@ class Database
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // ============================================================
     // SELECT
     // ============================================================
@@ -72,6 +73,11 @@ class Database
     // SELECT
     // ============================================================
 >>>>>>> 095c86d (whoops, forgot to delete!)
+=======
+    //============================================================
+    // SELECT
+    //============================================================
+>>>>>>> 103a260 (ok then)
 
     public function select($sql, $parameters = null)
     // Performs SQL search functions
@@ -223,7 +229,6 @@ class Database
 
     public function statement($sql, $parameters = null)
     {
-
         // Verify if it is a different statement
 <<<<<<< HEAD
 <<<<<<< HEAD
