@@ -2,7 +2,7 @@
 use core\classes\Database;
 use core\classes\Functions;
 
-// Open session
+// Open sessioncd
 session_start();
 
 // Load config file
@@ -14,11 +14,7 @@ require_once('../vendor/autoload.php');
 $db = new Database();
 
 $customers = $db->select("SELECT * FROM customers");
-$test = $db->select("INSERT TEST");
-
-echo '<pre>';
-print_r($customers/* , $test */);
-echo '</pre>';
+$db->select("INSERT TEST");
 
 
 // phpinfo();
