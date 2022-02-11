@@ -14,7 +14,8 @@ require_once('../vendor/autoload.php');
 $db = new Database();
 
 $customers = $db->select("SELECT * FROM customers");
-$db->select("INSERT TEST");
+$db->insert("INSERT TEST");
 
+print_r($customers);
 
 // phpinfo();
